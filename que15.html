@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        function evaluatePostfix(expression) {
+            let stack = [];
+            let len = expression.length
+            for (let i = 0; i < len; i++) {
+                let c = expression[i];
+                //c not NAN push in stack 
+                if (!isNaN(parseInt(c))) {
+                    stack.push(Number(c))
+                }
+                //c is NAN do computation and push in stack 
+                else {
+                    let val1 = stack.pop();
+                    let val2 = stack.pop();
+
+                    switch (c) {
+                        case "+":
+                            stack.push(val2 + val1);
+                            break;
+                        case "-":
+                            stack.push(val2 - val1)
+                            break;
+                        case "*":
+                            stack.push(val2 * val1);
+                            break;
+                        case "/":
+                            stack.push(val2 / val1)
+                            break;
+                    }
+                }
+            }
+            return stack.pop()
+        }
+
+        // Driver program to test above functions
+        let expression = "531*+9-"
+        let ans = evaluatePostfix(expression);
+        console.log(ans);
+
+
+    </script>
+</body>
+
+</html>

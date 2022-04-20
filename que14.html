@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function leftRotateArray(arr, k) {
+            let temp = [];
+            for (let i = 0; i < k; i++) {
+                temp.push(arr.shift());
+            }
+            //concatinate the temp array with arr
+            arr = arr.concat(temp);
+            return arr;
+        }
+
+
+        // Driver program to test above functions
+        arr = [1, 2, 3, 4, 5, 6, 7]
+        let ans = leftRotateArray(arr, 3);
+        console.log(ans);
+
+    </script>
+</body>
+
+</html>
